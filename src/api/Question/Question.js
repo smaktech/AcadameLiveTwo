@@ -5,6 +5,7 @@ import { objToQueryString } from '../../config'
 
 
 async function getQuestion(id) {
+    try{
     console.log('request from client done');
 
     var apiLink;
@@ -26,6 +27,10 @@ async function getQuestion(id) {
 
    console.log('Get Question Table iD', data)
     return data;
+}
+catch(error){
+    alert(error);
+}
 }
 //Fetch all course data using offset and limit!
 async function getAllCourse(page, limit) {
@@ -97,7 +102,7 @@ async function editCourse(courseID, name, boardID, subBoardID, classesID, subjec
 
 //api function for adding a course 
 async function createQuestion( id,question, media) {
-
+try{
     //ne
     const formData = new FormData()
   formData.append('ID', id)
@@ -129,6 +134,10 @@ async function createQuestion( id,question, media) {
 
       console.log(data);
       return data;
+    }
+    catch(error){
+        alert(error);
+    }
       
 }
 

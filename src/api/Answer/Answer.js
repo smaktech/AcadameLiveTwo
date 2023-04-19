@@ -5,6 +5,7 @@ import { objToQueryString } from '../../config'
 
 
 async function getSingleAnswer(id) {
+    try{
     // console.log('request from client done');
 
     var apiLink;
@@ -18,10 +19,14 @@ async function getSingleAnswer(id) {
         headers: {
             Accept: 'application/json',
                     'Content-Type': 'application/json',
+                    
         },
 
     }).then((res) => res.json());
     return data;
+}catch(error){
+    alert(error);
+}
 }
 
     // console.log('Get single answer api', data)
@@ -84,6 +89,7 @@ async function getAllCourse(page, limit) {
 
 async function editAnswer(inputFields, ansid)
     {
+        try{
         const formData = new FormData()
         const evalData=Object.keys(inputFields).map(key => ({key: inputFields[key]}));
         //JSON.stringify(inputFields)
@@ -115,17 +121,23 @@ async function editAnswer(inputFields, ansid)
       }
       formBody = formBody.join("&");
       const data = await fetch(apiUrl + '/answer/editAnswer/'+ ansid, {
-        method: 'PATCH',
+        method: 'POST',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/x-www-form-urlencoded',
+        //   "Access-Control-Allow-Headers" : "Content-Type",
+        //   "Access-Control-Allow-Origin": "*",
+        //   "Access-Control-Allow-Methods": "*"
         },
         body:formBody,
       }).then((res) => res.json());
       console.log('check answer wwe ', apiUrl)
       console.log(data);
       return data;
-
+    }
+    catch(error){
+        alert(error);
+    }
     //  const data= await fetch(apiUrl + '/answer/editAnswer/' + ansid, {
     //     method: 'PATCH',
     //     headers:{
@@ -202,7 +214,7 @@ async function editCourse(courseID, name, boardID, subBoardID, classesID, subjec
 
 //api function for adding a course 
 async function createAnswer( id, Questiontableid, inputFields, mcqFields,mcqtypeFields) {
-
+try{
     //ne
     var details = { 
         "ID":id,
@@ -234,7 +246,10 @@ async function createAnswer( id, Questiontableid, inputFields, mcqFields,mcqtype
       console.log('check answer wwe ', apiUrl)
       console.log(data);
       return data;
-      
+    }
+    catch(error){
+        alert(error);
+    }
 }
 
 //api to delete the course from the database

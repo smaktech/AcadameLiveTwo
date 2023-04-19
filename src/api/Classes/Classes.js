@@ -2,6 +2,7 @@
 import { objToQueryString } from '../../config'
 //Fetch all classes data using offset and limit!
 async function getAllClasses(page, limit) {
+  try{
   const queryString = objToQueryString({
       page: page,
       limit: limit,
@@ -19,6 +20,10 @@ async function getAllClasses(page, limit) {
       },
   }).then((res) => res.json());
   return data;
+}
+catch(error){
+  alert(error);
+}
 }
 
 

@@ -16,6 +16,7 @@ async function getCourseTopics(courseID) {
 
 //Fetch all topic data using offset and limit!
 async function getAllTopics(page, limit) {
+    try{
     const queryString = objToQueryString({
         //   searchString: searchString,
         //   startDate: startDate,
@@ -37,7 +38,10 @@ async function getAllTopics(page, limit) {
         },
     }).then((res) => res.json());
     return data;
-
+    }
+    catch(error){
+        alert(error);
+    }
 }
 
 //Fetch all topic data using offset and limit!

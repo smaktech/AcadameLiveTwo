@@ -3,6 +3,7 @@ import { objToQueryString } from '../../config'
 
 //Fetch all course data using offset and limit!
 async function getAllCourse(page, limit) {
+    try{
     const queryString = objToQueryString({
         page: page,
         limit: limit,
@@ -21,10 +22,15 @@ async function getAllCourse(page, limit) {
     }).then((res) => res.json());
     return data;
 }
+catch(error){
+    alert(error);
+}
+}
 
 //api function for update a course 
 
 async function editCourse(courseID, name, boardID, subBoardID, classesID, subjectID, description, status,courseImage) {
+    try{
     // var details = {
     //     "name": name,
     //     "description": description,
@@ -67,7 +73,10 @@ async function editCourse(courseID, name, boardID, subBoardID, classesID, subjec
         body:formData
     }).then((res) => res.json());
     return data;
-
+    }
+    catch(error){
+        alert(error);
+    }
 }
 
 //api function for adding a course 
@@ -118,6 +127,7 @@ async function deleteCourse(courseID) {
 
 //api to get the details of a particular topic by sending the courdseId
 async function getCourseById(courseID) {
+    try{
     const data = await fetch(apiUrl + '/course/getCourseById/' + courseID, {
         method: 'GET',
         headers: {
@@ -126,6 +136,10 @@ async function getCourseById(courseID) {
         },
     }).then((res) => res.json());
     return data;
+}
+catch(error){
+    alert(error);
+}
 }
 
 
@@ -164,6 +178,7 @@ async function getCourseByFilter(searchString, startDate, endDate, sortByDate, s
 
 //api to get all courses of user
 async function getAllUserCourses(userID) {
+    try{
     const data = await fetch(apiUrl + '/userCourse/getAllUserCourses/' + userID, {
         method: 'GET',
         headers: {
@@ -172,6 +187,10 @@ async function getAllUserCourses(userID) {
         },
     }).then((res) => res.json());
     return data;
+}
+catch(error){
+    alert(error);
+}
 }
 
 export { getAllCourse, editCourse, deleteCourse, getCourseByFilter, getCourseById, getAllUserCourses, createCourse }

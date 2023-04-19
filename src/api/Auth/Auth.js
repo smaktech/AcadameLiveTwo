@@ -1,4 +1,6 @@
 import { apiUrl } from '../../config';
+// const errorLog = require('../../utils/logger');
+// const successlog = require('../../utils/logger');
 
 async function RestLogin(credentials) {
   const data = await fetch(apiUrl + '/auth/loginAdmin', {

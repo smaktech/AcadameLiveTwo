@@ -776,7 +776,7 @@ export default function User(props) {
                                                                 {/* <img src={`http://localhost:4000/${media}`} height="100%" width='172%' /></Card> */}
 
                                                                 {/* <img src={`https://academeserverapp.herokuapp.com/${media}`} width='100%' /></Card> */}
-                                                                <img src={`http://testlime.portech.co/${media}`} width='100%' /></Card>
+                                                                <img src={`https://acadameapi.cdssapps.in/${media}`} width='100%' /></Card>
                                                             <br /><br /><br />
 
                                                         </div>

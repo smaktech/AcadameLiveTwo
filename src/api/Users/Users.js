@@ -43,6 +43,7 @@ async function changeStatus(userId, status) {
 
 //api to delete the user from the database
 async function deleteUser(userId) {
+  try{
   const data = await fetch(apiUrl + '/auth/deleteUser/' + userId, {
     method: 'DELETE',
     headers: {
@@ -52,9 +53,14 @@ async function deleteUser(userId) {
   }).then((res) => res.json());
   return data;
 }
+catch(error){
+  alert(error);
+}
+}
 
 //api to get the details of a particular user by sending the userId
 async function getUserById(userId) {
+  try{
   const data = await fetch(apiUrl + '/auth/getUserById/' + userId, {
     method: 'GET',
     headers: {
@@ -63,6 +69,9 @@ async function getUserById(userId) {
     },
   }).then((res) => res.json());
   return data;
+}catch(error){
+  alert(error);
+}
 }
 
 

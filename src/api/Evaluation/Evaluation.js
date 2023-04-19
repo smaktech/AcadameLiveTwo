@@ -4,41 +4,47 @@ import { objToQueryString } from '../../config'
 
 //Fetch all course data using offset and limit!
 async function getAllEvaluation() {
-    const queryString = objToQueryString({
-        // page: page,
-        // limit: limit,
-
-    })
-    var apiLink;
-
-    apiLink = apiUrl + '/evaluation/getevaluationlist'
-    console.log("Request from getEvaluation to", apiLink);
+    try{
+        const queryString = objToQueryString({
+            // page: page,
+            // limit: limit,
     
-    const data = await fetch(apiLink, {
-        method: 'GET',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        },
+        })
+        var apiLink;
+    
+        apiLink = apiUrl + '/evaluation/getevaluationlist'
+        console.log("Request from getEvaluation to", apiLink);
         
-    }).then((res) => res.json());
-
-    // const numAscending = [...data].sort((a, b) => b.course - a.course);
-    //  data = [].concat(this.state.data)
-    // .sort((a, b) => a.board > b.board ? 1 : -1)
-//    data= data.sort((a,b) => (a.board > b.board) ? 1 : ((b.board > a.board) ? -1 : 0))
-    // data.sort(function(a, b){
-    //     if(a.board < b.board) { return -1; }
-    //     if(a.board > b.board) { return 1; }
-    //     return 0;
-    // })
-  
-//    data('board').sort((a, b) => b-a)
-    return data;
+        const data = await fetch(apiLink, {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            
+        }).then((res) => res.json());
+    
+        // const numAscending = [...data].sort((a, b) => b.course - a.course);
+        //  data = [].concat(this.state.data)
+        // .sort((a, b) => a.board > b.board ? 1 : -1)
+    //    data= data.sort((a,b) => (a.board > b.board) ? 1 : ((b.board > a.board) ? -1 : 0))
+        // data.sort(function(a, b){
+        //     if(a.board < b.board) { return -1; }
+        //     if(a.board > b.board) { return 1; }
+        //     return 0;
+        // })
+      
+    //    data('board').sort((a, b) => b-a)
+        return data;
+    }
+  catch(error){
+    alert(error);
+  }
 
 }
 
 async function getEvaluationID(id) {
+    try{
     console.log('getEvaluationID');
 
     var apiLink;
@@ -61,10 +67,17 @@ async function getEvaluationID(id) {
    console.log('Get getEvaluationID', data)
     return data;
 }
+catch(error){
+alert(error);
+}
+}
 
 //api function for update a course 
 
 async function editEvaluation(course, name, board, subBoard, classes, subject, description, status, courseImage) {
+    try{
+
+    
     // var details = {
     //     "name": name,
     //     "description": description,
@@ -107,12 +120,17 @@ async function editEvaluation(course, name, board, subBoard, classes, subject, d
     }).then((res) => res.json());
     // console.log("description")
     return data;
+}
+catch(error)
+{
+    alert(error);
+}
 
 }
 
 //api function for adding a course 
 async function createEvaluation( board, qualification, subject, description, course) {
-
+try{
     //////////////////////////////
     var details = {
         "board": board,
@@ -148,17 +166,20 @@ async function createEvaluation( board, qualification, subject, description, cou
     console.log('client data console',data);
     return data;
     
-
+}
+catch(error){
+    alert(error);
+}
 
 
 }
 
 //api to delete the course from the database
 async function deleteEvaluation(course) {
-
+try{
     const data = await fetch(apiUrl + '/evaluation/deleteEvaluationById/' + course, {
 
-        method: 'DELETE',
+        method: 'POST',
         headers: {
             Accept: 'application/json',
             // 'Content-Type': 'application/json',
@@ -167,9 +188,14 @@ async function deleteEvaluation(course) {
     console.log('courseID server check', deleteEvaluation)
     return data;
 }
+catch(error){
+    alert(error);
+}
+}
 
 //api to get the details of a particular topic by sending the courdseId
 async function getEvaluationById(evaluation) {
+    try{
     const data = await fetch(apiUrl + '/evaluation/getEvaluationById/' + evaluation, {
         method: 'GET',
         headers: {
@@ -177,13 +203,17 @@ async function getEvaluationById(evaluation) {
             'Content-Type': 'application/json',
         },
     }).then((res) => res.json());
-    return data;
+    return data;}
+    catch(error){
+        alert(error);
+    }
 }
 
 
 
 
 async function getEvaluationByFilter(searchString, startDate, endDate, sortByDate, status, board, subject) {
+    try{
     let obj = {
         board: board,
         subject: subject,
@@ -211,11 +241,16 @@ async function getEvaluationByFilter(searchString, startDate, endDate, sortByDat
         },
     }).then((res) => res.json());
     return data;
+}
+catch(error){
+    alert(error);
+}
 
 }
 
 //api to get all courses of user
 async function getAllUserEvaluations(userID) {
+    try{
     const data = await fetch(apiUrl + '/userEvaluation/getAllUserEvaluations/' + userID, {
         method: 'GET',
         headers: {
@@ -224,6 +259,10 @@ async function getAllUserEvaluations(userID) {
         },
     }).then((res) => res.json());
     return data;
+}
+catch(error){
+    alert(error);
+}
 }
 
 export { getAllEvaluation,getEvaluationID, editEvaluation, deleteEvaluation, getEvaluationByFilter, getEvaluationById, getAllUserEvaluations, createEvaluation }
