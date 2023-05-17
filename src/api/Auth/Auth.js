@@ -3,6 +3,9 @@ import { apiUrl } from '../../config';
 // const successlog = require('../../utils/logger');
 
 async function RestLogin(credentials) {
+  try{
+
+  
   const data = await fetch(apiUrl + '/auth/loginAdmin', {
     method: 'POST',
     headers: {
@@ -12,7 +15,10 @@ async function RestLogin(credentials) {
     body: JSON.stringify(credentials),
   }).then((res) => res.json());
   return data;
-  
+}
+catch(error){
+// alert(error)
+}
 }
 
 async function ForgotPassword(credentials) {

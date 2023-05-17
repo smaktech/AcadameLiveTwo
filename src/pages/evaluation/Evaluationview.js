@@ -730,7 +730,7 @@ export default function User(props) {
                                         </TableHead> */}
                                         <TableBody>
                                             <div className="singlequesedit col-lg-4 col-sm-6  col-12">
-                                                <div className='newedit' style={{ backgroundColor: "cadetblue", padding: "30px", height: "265px", width: "300%" }}>
+                                                <div className='newedit' style={{ backgroundColor: "#aa960069", padding: "30px", height: "265px", width: "300%" }}>
                                                     <Row>
                                                         <div className='viet col-6'>
                                                             <Form.Group controlId="exampleForm.ControlTextarea1" ></Form.Group>
@@ -990,13 +990,13 @@ onChange={event => handleChangeInput(inputField.id, event)} ></Form.Control> */}
                 </div>
             </Grid> */}
               
-              <div class="Update">
+              <div class="Updatevieweval">
 
 <div className='predit'>
-    <Button class="btn btn-warning" onClick={() => gotoprev()} size='small' variant="contained">Previous</Button>
+    <Button class="btn btn-warning"  style={{ width: '90px' }}  onClick={() => gotoprev()} size='small' variant="contained">Previous</Button>
 </div>
 <div className='nextedit'>
-    <Button class="btn btn-warning" onClick={() => gotonext()} size='small' variant="contained">Next</Button>
+    <Button class="btn btn-warning"  style={{ width: '90px' }} onClick={() => gotonext()} size='small' variant="contained">Next</Button>
 </div>
 </div>
 {/* <div className='updtbtn'>

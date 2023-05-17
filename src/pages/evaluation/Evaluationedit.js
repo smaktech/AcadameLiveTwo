@@ -753,7 +753,7 @@ export default function User(props) {
                                         </TableHead> */}
                                         <TableBody>
                                             <div className="singlequesedit col-lg-4 col-sm-6  col-12">
-                                                <div className='newedit' style={{ backgroundColor: "cadetblue", padding: "30px", height: "265px", width: "300%" }}>
+                                                <div className='newedit' style={{ backgroundColor: "#aa960069", padding: "30px", height: "265px", width: "300%" }}>
                                                     <Row>
                                                         <div className='viet col-6'>
                                                             <Form.Group controlId="exampleForm.ControlTextarea1" ></Form.Group>
@@ -840,7 +840,7 @@ onChange={event => handleChangeInput(inputField.id, event)} ></Form.Control> */}
                                                                                 <Form.Control type="text" name='Answer' value={answer} onChange={(e) => setAnswer(e.target.value)} placeholder='Answers' as="textarea" rows={5} ></Form.Control>
                                                                                 {/* <Form.Control type="text" name='Answer' value={row.optiona} onChange={(e) => setAnswer(e.target.value)} placeholder='Answers' as="textarea" rows={5} ></Form.Control> */}
                                                                             </Form.Group>
-
+    
                                                                         </div>
                                                                         )
                                                                                 
@@ -854,6 +854,7 @@ onChange={event => handleChangeInput(inputField.id, event)} ></Form.Control> */}
 
                                                                 </div>
                                                             </div>
+                                                            
                                                         </div>
                                                     
                                                 </div>
@@ -983,7 +984,9 @@ onChange={event => handleChangeInput(inputField.id, event)} ></Form.Control> */}
                             </Col>
 
                         </div>
+                        
                     </div>
+                    
                 </div>
 
 
@@ -1015,15 +1018,15 @@ onChange={event => handleChangeInput(inputField.id, event)} ></Form.Control> */}
               <div class="Update">
 
 <div className='predit'>
-    <Button class="btn btn-warning" onClick={() => gotoprev()} size='small' variant="contained">Previous</Button>
+    <Button class="btn btn-warning"  style={{ width: '90px' }} onClick={() => gotoprev()} size='small' variant="contained">Previous</Button>
 </div>
 <div className='nextedit'>
    {/*} <Button class="btn btn-warning" onClick={() => gotonext()} size='small' variant="contained">Next</Button>*/}
-    <Button class="btn btn-warning" onClick={() => gotonext()} size='small' variant="contained">Next</Button>
+    <Button class="btn btn-warning"  style={{ width: '90px' }} onClick={() => gotonext()} size='small' variant="contained">Next</Button>
 </div>
 </div>
 <div className='updtbtn'>
-<Button class="btn btn-info" size='small' onClick={() => addNewEvaluation()} variant="contained">Update</Button>
+<Button class="btn btn-info"  style={{ width: '90px' }} size='small' onClick={() => addNewEvaluation()} variant="contained">Update</Button>
 </div>
         </>
     

@@ -464,6 +464,7 @@ html,body {
     height: 100%;
     border-radius: 7px;
     border: 1px solid #C4CDD5;
+ 
    
 }
 .mcqbtnsas{
@@ -476,18 +477,25 @@ html,body {
 .Update {
     display: flex;
     width: 300%;
-    margin-top: 16%;
+    margin-top: 8%;
     margin-left: -9%;
     /* justify-content: flex-end; */
 
 }
+.Updatevieweval {
+    display: flex;
+    width: 300%;
+    margin-top: 1%;
+    margin-left: -9%;
+    /* justify-content: flex-end; */
 
+}
 .lastrev {
     display: flex;
     border: 1.5px solid #C4CDD5;
     padding: 32px;
     border-radius: 6px;
-    background-color: cadetblue;
+    background-color:rgba(178,150,1, 0.416);
 }
 
 .lastrevhint {
@@ -551,12 +559,12 @@ html,body {
 }
 
 .predit {
-    margin-left: 4%;
+    margin-left: 3.75%;
     margin-top: -3.0%;
 }
 
 .nextedit {
-    margin-left: 25.5%;
+    margin-left: 25.75%;
     margin-top: -3.0%;
 }
 
@@ -590,9 +598,11 @@ html,body {
     border: 1.5px solid #C4CDD5;
     padding: 32px;
     border-radius: 6px;
-    background-color: cadetblue;
+    /* background-color: cadetblue; */
+    background-color:rgba(178,150,1, 0.416);
 
 }
+
 .editev{
     border: 1.5px solid #C4CDD5;
     width: 313%;
